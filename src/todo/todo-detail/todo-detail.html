@@ -1,0 +1,15 @@
+<section flex>
+    <h1 layout-align="center" layout="row">Detail information</h1>
+    <md-input-container layout="row">
+        <label>Title</label>
+        <input type="text" ng-model="todoDetailCtrl.changedTodo.title">
+    </md-input-container>
+    <md-input-container layout="row">
+        <label>Text</label>
+        <input type="text" name="text" ng-model="todoDetailCtrl.changedTodo.text">
+    </md-input-container>
+    <md-button ng-disabled="todoDetailCtrl.isChanged()" ng-click="todoDetailCtrl.commit()" class="md-raised md-primary">
+        Update
+    </md-button>
+    <md-button ng-click="todoDetailCtrl.close()" class="md-raised md-warn">Close</md-button>
+</section>

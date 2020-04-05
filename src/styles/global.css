@@ -1,0 +1,31 @@
+@import "~angular-material/angular-material.css";
+
+ui-view, todo-main {
+    height: 100%;
+}
+
+#content {
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 5px;
+}
+
+md-list #list-item {
+    color: inherit;
+    font-weight: 500;
+    width: 100%;
+}
+
+#list-item.selected {
+    color: #03a9f4;
+}
+
+md-list todo-item {
+    width: 100%;
+}
+
+md-list todo-item p,h1 {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}

@@ -1,0 +1,9 @@
+<md-button ng-class="{'md-raised' : todoItemCtrl.todo.id === todoItemCtrl.todoId }"
+           ng-click="todoItemCtrl.onSelect(todoItemCtrl.todo)"
+           ui-sref="todos.details({ todoId: todoItemCtrl.todo.id })"
+           id="list-item">
+    <h1>{{todoItemCtrl.todo.title}}</h1>
+    <p>{{todoItemCtrl.todo.text}}</p>
+    <md-button class="md-warn" ng-click="todoItemCtrl.deleteTodo()">Delete</md-button>
+</md-button>
+
