@@ -1,21 +1,13 @@
 <md-toolbar layout="row" class="md-toolbar-tools">
-    <!-- <md-button class="menu md-icon-button">
-        <md-icon md-svg-icon="menu"></md-icon>
-    </md-button> -->
-    <h1>Todos...</h1>
+  <h1>Todos...</h1>
 </md-toolbar>
 
 <div flex layout="row">
-    <md-sidenav class="md-whiteframe-4dp" md-is-locked-open="true">
-        <todo-list remove-todo="todoMainCtrl.removeTodo(todoId)" todos="todoMainCtrl.todos"></todo-list>
-        <md-button class="md-primary md-raised" ng-click="todoMainCtrl.addNew()">Create new</md-button>
-    </md-sidenav>
-
-    <md-content flex id="content">
-        <ui-view update-todo="todoMainCtrl.updateTodo(todo)"></ui-view>
-<!--        <todo-add ng-if="todoListCtrl.openedAddNew"-->
-<!--                  toggle="todoListCtrl.toggleAddNew()"-->
-<!--                  create-todo="todoListCtrl.createTodo(title, text)">-->
-<!--        </todo-add>-->
-    </md-content>
+  <md-sidenav class="md-whiteframe-4dp" md-is-locked-open="true">
+    <todo-list remove-todo="todoMainCtrl.removeTodo(todoId)" todos="todoMainCtrl.todos"></todo-list>
+    <md-button class="md-primary md-raised" ng-click="todoMainCtrl.addNew()">Create new</md-button>
+  </md-sidenav>
+  <md-content flex id="content">
+    <ui-view update-todo="todoMainCtrl.updateTodo(todo)"></ui-view>
+  </md-content>
 </div>

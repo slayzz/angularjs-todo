@@ -1,38 +1,44 @@
 import angular from 'angular';
+import { GraphQLClient } from 'graphql-request';
+import { from, defer } from 'rxjs';
+import { pluck } from 'rxjs/operators';
+import { mutations, queries } from '../../graphql/todo';
 
-const DB_NAME = 'todos';
+const GRAPHQL_ENDPOINT = '/graphql';
+
 class TodoService {
-    constructor(storage) {
-        this.storage = storage;
-        this.lastId = Math.max(...this.storage.get(DB_NAME).value().map(val => val.id));
-    }
+  constructor(storage) {
+    this.storage = storage;
+    this.graphqlClient = new GraphQLClient(GRAPHQL_ENDPOINT);
+  }
 
-    getAll() {
-        const todos = [...this.storage.get(DB_NAME).value() ];
-        return todos;
-    }
+  getAll() {
+    return this._graphQlRequest(queries.getTodos, {}, 'getTodos');
+  }
 
-    getOne(id) {
-        const todo = { ...this.storage.get(DB_NAME).find({ id }).value() };
-        return todo;
-    }
+  getOne(id) {
+    return this._graphQlRequest(queries.getTodo, { id }, 'getTodo');
+  }
 
-    createTodo(title, text) {
-        return this.storage.get(DB_NAME).push({ title, text, id: ++this.lastId }).write();
-    }
+  createTodo(title, text) {
+    return this._graphQlRequest(mutations.addTodo, { title, text }, 'addTodo');
+  }
 
-    removeTodo(id) {
-        return this.storage.get(DB_NAME).remove({ id }).write();
-    }
+  removeTodo(id) {
+    return this._graphQlRequest(mutations.removeTodo, { id } );
+  }
 
-    updateTodo(todo) {
-        return this.storage.get(DB_NAME).find({ id: todo.id }).assign({ ...todo }).write();
-    }
+  updateTodo(todo) {
+    return this._graphQlRequest(mutations.updateTodo, { ...todo }, 'updateTodo');
+  }
 
-    static name = 'todoService';
+  _graphQlRequest(query, variables, ...pluckArgs) {
+    return !pluckArgs.length
+      ? defer(() => from(this.graphqlClient.request(query, variables)))
+      : defer(() => from(this.graphqlClient.request(query, variables)).pipe(pluck(...pluckArgs)));
+  }
+
+  static name = 'todoService';
 }
 
-
-export default angular.module('app.todos.services', [])
-    .service('todoService', TodoService)
-    .name;
+export default angular.module('app.todos.services', []).service('todoService', TodoService).name;

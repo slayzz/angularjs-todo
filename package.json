@@ -5,7 +5,10 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js"
+    "build": "webpack --config webpack.prod.js",
+    "server:start": "pm2 start ./server/app.js --watch",
+    "server:stop": "pm2 stop all",
+    "server:logs": "pm2 logs all"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -15,9 +18,11 @@
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.4.2",
     "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
     "eslint-loader": "^3.0.3",
     "html-loader": "^1.0.0",
     "html-webpack-plugin": "^4.0.2",
+    "prettier": "^2.0.4",
     "style-loader": "^1.1.3",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
@@ -30,6 +35,15 @@
     "angular-aria": "^1.7.9",
     "angular-material": "^1.1.21",
     "angular-ui-router": "^1.0.25",
-    "lowdb": "^1.0.0"
+    "graphql": "^15.0.0",
+    "graphql-request": "^1.8.2",
+    "koa": "^2.11.0",
+    "koa-graphql": "^0.8.0",
+    "koa-mount": "^4.0.0",
+    "koa-static": "^5.0.0",
+    "lowdb": "^1.0.0",
+    "mongoose": "^5.9.7",
+    "pm2": "^4.2.3",
+    "rxjs": "^6.5.5"
   }
 }

@@ -1,7 +1,10 @@
 <md-list>
-    <md-list-item ng-repeat="todo in todoListCtrl.todos track by todo.id">
-        <todo-item on-select="todoListCtrl.selectTodo(todo)" remove-todo="todoListCtrl.removeTodo({ todoId: todo.id })"
-                   todo="todo"></todo-item>
-        <md-divider ng-if="!$last"></md-divider>
-    </md-list-item>
+  <md-list-item ng-repeat="todo in todoListCtrl.todos track by todo.id">
+    <todo-item
+      on-select="todoListCtrl.selectTodo(todo)"
+      remove-todo="todoListCtrl.removeTodo({ todoId: todo.id })"
+      todo="todo"
+    ></todo-item>
+    <md-divider ng-if="!$last"></md-divider>
+  </md-list-item>
 </md-list>
