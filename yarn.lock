@@ -617,10 +617,10 @@ angular-ui-router@^1.0.25:
   dependencies:
     "@uirouter/core" "6.0.4"
 
-angular@^1.7.9:
-  version "1.7.9"
-  resolved "https://registry.yarnpkg.com/angular/-/angular-1.7.9.tgz#e52616e8701c17724c3c238cfe4f9446fd570bc4"
-  integrity sha512-5se7ZpcOtu0MBFlzGv5dsM1quQDoDeUTwZrWjGtTNA7O88cD8TEk5IEKCTDa3uECV9XnvKREVUr7du1ACiWGFQ==
+angular@^1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/angular/-/angular-1.8.0.tgz#b1ec179887869215cab6dfd0df2e42caa65b1b51"
+  integrity sha512-VdaMx+Qk0Skla7B5gw77a8hzlcOakwF8mjlW13DpIWIDlfqwAbSSLfd8N/qZnzEmQF4jC4iofInd3gE7vL8ZZg==
 
 ansi-colors@^3.0.0, ansi-colors@^3.2.1:
   version "3.2.4"
@@ -2819,11 +2819,6 @@ graphql-request@^1.8.2:
   integrity sha512-dDX2M+VMsxXFCmUX0Vo0TopIZIX4ggzOtiCsThgtrKR4niiaagsGTDIHj3fsOMFETpa064vzovI+4YV4QnMbcg==
   dependencies:
     cross-fetch "2.2.2"
-
-graphql.js@^0.6.6:
-  version "0.6.6"
-  resolved "https://registry.yarnpkg.com/graphql.js/-/graphql.js-0.6.6.tgz#ed61ce9c2bd22893054ec32b00577393b889f0ff"
-  integrity sha512-JPp3GlZBzr/xNxv2goT8bn54MjVENYEF8AyRoPCxAWyXEeRMGpo3IfK19trSlBJNYXpMcGO4sVh3olcO9iM7Bg==
 
 graphql@^15.0.0:
   version "15.0.0"
